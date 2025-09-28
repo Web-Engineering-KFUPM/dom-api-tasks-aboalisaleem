@@ -4,6 +4,9 @@
 All tasks in one file (script.js)
 =======================================
 */
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("t1-msg").innerHTML = "Hello, World!";
+});
 
 /*  
 =======================================
@@ -19,7 +22,7 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
+
 
 /*  
 =======================================
