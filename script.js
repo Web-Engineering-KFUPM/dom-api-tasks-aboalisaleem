@@ -44,6 +44,9 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
+document.getElementById("t2-btn").addEventListener("click", function () {
+  document.getElementById("t2-status").innerHTML = "You clicked the button!";
+});
  
 
 /*  
@@ -72,7 +75,14 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
- 
+document.getElementById("t3-loadQuote").addEventListener("click", function () {
+  fetch("https://dummyjson.com/quotes/random")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("t3-quote").innerHTML = data.content;
+      document.getElementById("t3-author").innerHTML = data.author;
+    });
+}); 
 
 /*  
 =======================================
@@ -98,3 +108,13 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+document.getElementById("t4-loadWx").addEventListener("click", function () {
+  const apiKey = "YOUR_API_KEY";
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("t4-temp").innerHTML = data.main.temp;
+      document.getElementById("t4-hum").innerHTML = data.main.humidity;
+      document.getElementById("t4-wind").innerHTML = data.wind.speed;
+    });
+});
